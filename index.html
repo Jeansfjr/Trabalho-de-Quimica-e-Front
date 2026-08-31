@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trabalho de Química e Front-End: análise do óxido de lítio em Homem de Ferro 2.">
+  <meta name="author" content="Nome do Grupo">
+  <title>O Óxido que Salvou o Homem de Ferro | Química &amp; Front-End</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="moldura site-header__inner">
+      <a class="brand" href="#inicio">
+        <span class="brand__core" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="36" height="36">
+            <circle cx="20" cy="20" r="18" class="core-ring core-ring--outer"></circle>
+            <circle cx="20" cy="20" r="12" class="core-ring core-ring--mid"></circle>
+            <circle cx="20" cy="20" r="5" class="core-ring core-ring--inner"></circle>
+          </svg>
+        </span>
+        <span class="brand__text">Reator Arc<span class="brand__text-thin">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="visually-hidden">Abrir menu</span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="#obra">A obra</a></li>
+          <li><a href="#identificacao">Identificação</a></li>
+          <li><a href="#classificacao">Classificação</a></li>
+          <li><a href="#aparicao">Na tela</a></li>
+          <li><a href="#analise">Análise</a></li>
+          <li><a href="#aplicacoes">Uso real</a></li>
+          <li><a href="#prova" class="site-nav__cta">Prova online</a></li>
+          <li><a href="#referencias">Referências</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <section class="prota" id="inicio" aria-label="Abertura">
+      <div class="moldura prota__inner">
+        <div class="prota__texto reveal">
+          <h1>O elemento que quase matou o Homem de Ferro</h1>
+          <p class="prota__lede">Em Homem de Ferro 2, um reator movido a paládio mantém Tony Stark vivo e ao mesmo tempo o envenena lentamente. Uma injeção de "dióxido de lítio" é usada para conter o efeito.</p>
+        </div>
+        
+        <div class="prota__reator" aria-hidden="true">
+          <svg viewBox="0 0 300 300" class="reactor">
+              <circle cx="150" cy="150" r="130" class="reactor__ring reactor__ring--1"></circle>
+              <circle cx="150" cy="150" r="100" class="reactor__ring reactor__ring--2"></circle>
+              <circle cx="150" cy="150" r="70"  class="reactor__ring reactor__ring--3"></circle>
+              <circle cx="150" cy="150" r="34"  class="reactor__core"></circle>
+            <g class="reactor__spokes">
+              <line x1="150" y1="20" x2="150" y2="280"></line>
+              <line x1="20" y1="150" x2="280" y2="150"></line>
+              <line x1="55" y1="55" x2="245" y2="245"></line>
+              <line x1="245" y1="55" x2="55" y2="245"></line>
+            </g>
+          </svg>
+        </div>
+      </div>
+      
+    </section>
+
+    <section class="section" id="obra" aria-labelledby="obra-title">
+      <div class="moldura">
+        <p class="rotulo">Sobre a obra</p>
+        <h2 id="obra-title">Homem de Ferro 2</h2>
+        <div class="grid-2">
+          <div class="cartao reveal">
+            <dl class="ficha-tecnica">
+              <div><dt>Título</dt><dd>Iron Man 2</dd></div>
+              <div><dt>Direção</dt><dd>Jon Favreau</dd></div>
+              <div><dt>Ano de lançamento</dt><dd>2010</dd></div>
+              <div><dt>Estúdio</dt><dd>Marvel Studios</dd></div>
+            </dl>
+            <figure class="cartao reveal img-cartao">
+              <img src="/img/homem_de_ferro_2_poster.jpg" alt="Poster de Homem de Ferro 2">
+              <figcaption>Poster oficial de Homem de Ferro 2</figcaption>
+            </figure>
+          </div>
+          <div class="cartao reveal">
+            <h3>Sinopse</h3>
+            <p>
+              Em Homem de Ferro 2, o bilionário Tony Stark sofre 
+              pressões do governo americano para entregar sua tecnologia, 
+              enquanto lida com a saúde em declínio e a
+              ameaça de vingança de Ivan Vanko.
+            </p>
+            <h3>Porque esta obra</h3>
+            <p>
+            Esta obra foi escolhida porque o filme gira em torno de um problema químico:
+            o reator que mantém Tony Stark vivo usa paládio no núcleo, 
+            e o metal está aos poucos envenenando o personagem.
+            Numa cena, aplicam nele uma substância pra conter esse efeito chamada oxido de litio.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="identificacao" aria-labelledby="identificacao-title">
+      <div class="moldura">
+        <p class="rotulo">1. Identificação</p>
+        <h2 id="identificacao-title">Óxido de lítio</h2>
+        <div class="grid-2">
+          <div class="cartao reveal">
+            <dl class="ficha-tecnica">
+              <div><dt>Nome da substância</dt><dd>Óxido de lítio</dd></div>
+              <div><dt>Fórmula química</dt><dd>Li₂O</dd></div>
+              <div><dt>Tipo de substância</dt><dd>Inorgânica</dd></div>
+            </dl>
+            <figure class="cartao reveal img-cartao">
+              <img src="/img/oxido_de_litio.jpg" alt="Amostra sólida de óxido de lítio em pó branco">
+              <figcaption>Amostra em pó de óxido de lítio (Li₂O)</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="classificacao" aria-labelledby="classificacao-title">
+      <div class="moldura">
+        <p class="rotulo">2. Classificação</p>
+        <div class="cartao reveal">
+          <p>
+            O Li₂O é um óxido porque é formado pela junção direta de um metal com oxigênio. 
+            Ele não pode ser ácido nem base porque essas duas classes têm hidrogênio ou hidroxila (OH⁻) na fórmula, 
+            e também não é sal, já que sal vem da reação entre um ácido e uma base.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="aparicao" aria-labelledby="aparicao-title">
+      <div class="moldura">
+        <p class="rotulo">3. Aparição no filme</p>
+        <h2 id="aparicao-title">A cena da injeção</h2>
+        <div class="cartao reveal">
+          <p>
+            Tony Stark e Nick Fury estão sentados numa mesa de
+            uma hamburgueria conversando sobre o problema de Tony
+            quando Natasha Romanoff, tambem conhecida como Viuva Negra,
+            aparece e se junta à eles na mesa, eles continuam conversando
+            sobre o problema de Tony até que a Natasha sai da mesa e depois
+            volta, sentando-se ao lado do Tony e injetando a injeção de Óxido
+            de lítio no pescoço dele ao comando de Nick Fury, ele pergunta o que injetaram
+            nele e os agentes explicam que é uma substância para retardadar os sintomas do Tony.
+          </p>
+          <figure class="cartao reveal img-cartao">
+            <img src="/img/Captura de tela 2026-08-31 204530.png" alt="Viuva Negra injetando a vacina em Tony Stark">
+            <figcaption>Cena em que a vacina é injetada em Tony Stark</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="analise" aria-labelledby="analise-title">
+      <div class="moldura">
+        <p class="rotulo">4. Análise Científica</p>
+        <h2 id="analise-tittle">Ficção parcialmente correte</h2>
+        <div class="grid-2">
+          <div class="cartao reveal">
+            <h3>O que o filme diz</h3>
+            <p>
+              No filme, a substância injetada em Tony Stark serve 
+              como uma solução de emergência para desacelerar 
+              o envenenamento causado pelo paládio do reator, 
+              ganhando tempo até ele conseguir sintetizar um elemento 
+              novo que resolvesse o problema de vez.
+            </p>
+          </div>
+          <div class="cartao cartao--correcao reveal">
+            <h3>O que a química diz</h3>
+            <p>
+              No filme, em vez de falar "Óxido de Lítio", eles falam
+              "Dióxido de Lítio", o que é incorreto, pois o Lítio tem
+              carga +1 e o Oxigênio -2, então as cargas se equilibram na proporção 2:1,
+              e não existe um "dióxido" de estável de Lítio nessas condições.
+              Então a representação é parcialmente correta, porque eles estavam usando
+              Óxido de Lítio mas chamando de Dióxido de Lítio.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="aplicacoes" aria-labelledby="aplicacoes-title">
+      <div class="moldura">
+        <p class="rotulo">5. Aplicações Reais</p>
+        <h2 id="aplicacoes-tittle">Onde o Óxido de Lítio aparece de verdade</h2>
+        <div class="grid-2">
+          <div class="cartao reveal">
+            <h3>Obtenção</h3>
+            <p>
+              O lítio usado na indústria vem principalmente do mineral espodumênio, 
+              extraído e transformado em lítio metálico por eletrólise. 
+              A partir daí, o óxido de lítio pode ser obtido queimando esse metal em oxigênio, 
+              ou de forma mais controlada, aquecendo o peróxido de lítio (Li₂O₂) até ele se decompor.
+            </p>
+          </div>
+          <div class="cartao reveal">
+            <h3>Usos</h3>
+            <p>
+              É usado como matéria-prima na fabricação de vidros e cerâmicas especiais, 
+              em eletrodos de baterias de lítio 
+              e como ponto de partida para produzir hidróxido de lítio, 
+              usado até em sistemas de purificação de ar de naves e submarinos.
+            </p>
+          </div>
+          <div class="cartao reveal">
+            <h3>Riscos</h3>
+            <p>
+              É corrosivo e reage com a umidade do ar, formando hidróxido de lítio, 
+              por isso precisa ser armazenado em ambiente seco e manuseado com proteção para olhos e pele. 
+              Já o impacto ambiental vem principalmente da mineração do lítio: 
+              o processo consome muita água e usa produtos químicos que podem contaminar solo e rios da região.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section prova-section" id="prova" aria-labelledby="prova-title">
+      <div class="moldura">
+        <p class="rotulo">6. Prova Online</p>
+        <h2 id="prova-tittle">Veja se você aprendeu o conteúdo</h2>
+
+        <form class="prova" id="prova-formulario" novalidate>
+          <fieldset class="prova__questao">
+            <legend>1. Qual é a fórmula correta do óxido de lítio?</legend>
+            <label><input type="radio" name="q1" value="certo"> Li₂O</label>
+            <label><input type="radio" name="q1" value="errado1"> LiO₂</label>
+            <label><input type="radio" name="q1" value="errado2"> Li₂O₂</label>
+          </fieldset>
+
+          <fieldset class="prova__questao">
+            <legend>2. Em Homem de Ferro 2, o que causava o envenenamento de Tony Stark?</legend>
+            <label><input type="radio" name="q2" value="certo"> O paládio do núcleo do reator</label>
+            <label><input type="radio" name="q2" value="errado1"> O óxido de lítio injetado</label>
+            <label><input type="radio" name="q2" value="errado2"> A radiação do traje</label>
+          </fieldset>
+
+          <fieldset class="prova__questao">
+            <legend>3. Como se classifica o óxido de lítio?</legend>
+            <label><input type="radio" name="q3" value="certo"> Óxido</label>
+            <label><input type="radio" name="q3" value="errado1"> Ácido</label>
+            <label><input type="radio" name="q3" value="errado2"> Sal</label>
+          </fieldset>
+
+          <div class="prova__botoes">
+            <button class="btn" type="submit">Corrigir prova</button>
+            <button class="btn btn--ghost" type="button" id="provaReset" hidden>Responder novamente</button>
+          </div>
+
+          <div class="prova__resultado" id="provaresultado" role="status" aria-live="polite" hidden></div>
+        </form>
+
+      </div>
+    </section>
+
+    <section class="section" id="referencias" aria-labelledby="referencias-title">
+      <div class="moldura">
+        <p class="rotulo">7. Referências</p>
+        <h2 id="referencias-title">Fontes consultadas</h2>
+        <ul class="ref-list">
+          <li>Link sobre a obra: https://pt.wikipedia.org/wiki/Homem_de_Ferro_2</li>
+          <li>Link de onde ver o filme: https://www.disneyplus.com/pt-br/browse/entity-85c5529d-c053-4fa4-9957-4906eb5aedc6</li>
+          <li>Link do Óxido de Lítio: https://www.aotbattery.com/product/Anhydrous-Lithium-Oxide-Powder-for-Solid-State-Electrolyte-Synthesis.html</li>
+          <li>Link do poster: https://www.adorocinema.com/filmes/filme-136190/</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="moldura site-footer__inner">
+      <p>Trabalho de Front-End e Química — Jean Saraçol Feijó Junior</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,502 @@
+/* ==========================================================================
+   Reator Arc — Química (Homem de Ferro 2)
+   ========================================================================== */
+
+:root {
+  --bg: #0a0e13;
+  --bg-panel: #121924;
+  --bg-panel-2: #17202c;
+  --accent: #4fd8e8;
+  --accent-dim: #2c8b96;
+  --correcao: #e8a23b;
+  --text: #e7edf2;
+  --text-muted: #93a3b0;
+  --border: rgba(255, 255, 255, 0.09);
+
+  --font-display: "Rajdhani", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+
+  --max-width: 1100px;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+h3 {
+  font-size: 1.15rem;
+  color: var(--accent);
+}
+
+p {
+  margin: 0 0 1em;
+  color: var(--text-muted);
+}
+
+a {
+  color: var(--accent);
+}
+
+.moldura {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.rotulo {
+  font-family: var(--font-display);
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+  margin: 0 0 0.4em;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #05171a;
+  padding: 0.6em 1em;
+  z-index: 100;
+  border-radius: 0 0 6px 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(10, 14, 19, 0.9);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem 1.5rem;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.brand__text-thin {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.core-ring {
+  fill: none;
+  stroke: var(--accent);
+}
+
+.core-ring--outer {
+  stroke-width: 1.4;
+  opacity: 0.5;
+}
+
+.core-ring--mid {
+  stroke-width: 1.8;
+  opacity: 0.75;
+}
+
+.core-ring--inner {
+  fill: var(--accent);
+  stroke: none;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--accent);
+}
+
+.site-nav__cta {
+  color: var(--accent) !important;
+  border: 1px solid var(--accent-dim);
+  padding: 0.35em 0.8em;
+  border-radius: 6px;
+}
+
+.prota {
+  padding: 4rem 0 5rem;
+  overflow: hidden;
+}
+
+.prota__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.prota__lede {
+  max-width: 46ch;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #05171a;
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.7em 1.4em;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn:hover {
+  background: #6fe3f0;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.prota__reator {
+  display: flex;
+  justify-content: center;
+}
+
+.reactor {
+  width: min(320px, 80vw);
+  height: auto;
+}
+
+.reactor__ring {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.2;
+  opacity: 0.35;
+  transform-origin: 150px 150px;
+  animation: pulse 3.2s ease-in-out infinite;
+}
+
+.reactor__ring--2 {
+  animation-delay: 0.3s;
+}
+
+.reactor__ring--3 {
+  animation-delay: 0.6s;
+}
+
+.reactor__core {
+  fill: var(--accent);
+  animation: glow 3.2s ease-in-out infinite;
+}
+
+.reactor__spokes line {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.04); }
+}
+
+@keyframes glow {
+  0%, 100% { filter: drop-shadow(0 0 4px var(--accent)); opacity: 0.85; }
+  50% { filter: drop-shadow(0 0 18px var(--accent)); opacity: 1; }
+}
+
+/* ---------- Sections ---------- */
+
+.section {
+  padding: 4.5rem 0;
+}
+
+.section--alt {
+  background: var(--bg-panel);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.cartao {
+  background: var(--bg-panel-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+}
+
+.cartao--correcao {
+  border-color: var(--correcao);
+}
+
+.cartao--correcao h3 {
+  color: var(--correcao);
+}
+
+.ficha-tecnica {
+  margin: 0;
+}
+
+.ficha-tecnica div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5em 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.ficha-tecnica div:last-child {
+  border-bottom: none;
+}
+
+.ficha-tecnica dt {
+  color: var(--text-muted);
+}
+
+.ficha-tecnica dd {
+  margin: 0;
+  text-align: right;
+  font-weight: 600;
+}
+
+.img-cartao img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+}
+
+.img-cartao figcaption {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 0.6em;
+}
+
+.note {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.ref-list {
+  color: var(--text-muted);
+  padding-left: 1.2rem;
+}
+
+.ref-list li {
+  margin-bottom: 0.6em;
+}
+
+.prova {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  max-width: 640px;
+}
+
+.prova__questao {
+  background: var(--bg-panel-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+}
+
+.prova__questao legend {
+  font-family: var(--font-display);
+  padding: 0 0.3em;
+  color: var(--text);
+}
+
+.prova__questao label {
+  display: block;
+  padding: 0.35em 0;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.prova__questao.is-correct {
+  border-color: #4fd88a;
+}
+
+.prova__questao.is-incorrect {
+  border-color: #e85f5f;
+}
+
+.prova__botoes {
+  display: flex;
+  gap: 1rem;
+}
+
+.prova__resultado {
+  background: var(--bg-panel-2);
+  border: 1px solid var(--accent-dim);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+}
+
+.prova__resultado strong {
+  color: var(--accent);
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+}
+
+.site-footer__inner p {
+  margin: 0.2em 0;
+}
+
+.site-footer__muted {
+  font-size: 0.85rem;
+}
+
+/* ---------- Scroll reveal ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Responsive: 375px – 1920px
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .prota__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .prota__reator {
+    order: -1;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .site-header__inner {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .site-nav ul {
+    justify-content: center;
+    gap: 0.4rem 0.9rem;
+  }
+
+  .site-nav a {
+    font-size: 0.88rem;
+  }
+
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1400px) {
+  :root {
+    --max-width: 1280px;
+  }
+}
