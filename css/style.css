@@ -481,3 +481,9 @@ a {
     --max-width: 1280px;
   }
 }
+
+.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
