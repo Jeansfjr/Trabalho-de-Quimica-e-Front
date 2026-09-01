@@ -1,155 +1,59 @@
-(function setupNavToggle() {
-  var toggle = document.getElementById("navToggle");
-  var nav = document.getElementById("siteNav");
+(function () {
+  var form = document.getElementById("prova-formulario");
+  var resetButton = document.getElementById("prova-resetar");
+  var resultBox = document.getElementById("prova-resultado");
 
-  if (!toggle || !nav) {
+  if (!form || !resetButton || !resultBox) {
     return;
   }
 
-  toggle.addEventListener("click", function () {
-    var isOpen = nav.classList.toggle("is-open");
-    toggle.setAttribute("aria-expanded", String(isOpen));
-  });
+  var respostas = {
+    q1: "certo",
+    q2: "certo",
+    q3: "certo"
+  };
 
-  nav.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      nav.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-    });
-  });
-})();
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-(function setupScrollReveal() {
-  var items = document.querySelectorAll(".reveal");
+    var pontos = 0;
+    var total = 3;
+    var resultado = "";
 
-  if (!items.length) {
-    return;
-  }
+    for (var pergunta in respostas) {
+      var resposta = form.querySelector(
+        'input[name="' + pergunta + '"]:checked'
+      );
 
-  if (!("IntersectionObserver" in window)) {
-    items.forEach(function (item) {
-      item.classList.add("is-visible");
-    });
-    return;
-  }
-
-  var observer = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  items.forEach(function (item) {
-    observer.observe(item);
-  });
-})();
-
-(function setupprova()
-  { var form = document.getElementById("prova-formulario");
-    var resetButton = document.getElementById("prova-resetar");
-    var resultBox = document.getElementById("prova-resultado");
-
-    if (!form || !resetButton || !resultBox) {
-      return;
-    }
-
-    var answerKey = {
-      q1: "certo",
-      q2: "certo",
-      q3: "certo"
-    };
-
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      var totalQuestions = Object.keys(answerKey).length;
-      var correctCount = 0;
-      var summaryLines = [];
-      var allAnswered = true;
-
-      Object.keys(answerKey).forEach(function (questionName) {
-        var anyInput = form.querySelector('input[name="' + questionName + '"]');
-        var fieldset = anyInput ? anyInput.closest("fieldset") : null;
-        var selected = form.querySelector(
-          'input[name="' + questionName + '"]:checked'
-        );
-
-        if (!fieldset) {
-          return;
-        }
-
-        fieldset.classList.remove("is-correct", "is-incorrect");
-
-        if (!selected) {
-          allAnswered = false;
-          return;
-        }
-
-        var isCorrect = selected.value === answerKey[questionName];
-
-        if (isCorrect) {
-          correctCount = correctCount + 1;
-          fieldset.classList.add("is-correct");
-        } else {
-          fieldset.classList.add("is-incorrect");
-        }
-
-        var legend = fieldset.querySelector("legend");
-        var questionLabel = legend ? legend.textContent : questionName;
-        var chosenLabel = selected.parentElement
-          ? selected.parentElement.textContent.trim()
-          : selected.value;
-
-        summaryLines.push(
-          "<li>" +
-            questionLabel +
-            " — sua resposta: " +
-            chosenLabel +
-            (isCorrect ? " ✅" : " ❌") +
-            "</li>"
-        );
-      });
-
-      if (!allAnswered) {
+      if (!resposta) {
         resultBox.hidden = false;
         resultBox.innerHTML =
-          "<p>Responda todas as perguntas antes de corrigir a prova.</p>";
+          "<p>Responda todas as perguntas antes de corrigir.</p>";
         return;
       }
 
-      var grade = ((correctCount / totalQuestions) * 10).toFixed(1);
+      if (resposta.value === respostas[pergunta]) {
+        pontos++;
+        resultado += "<p>" + pergunta + ": correta ✅</p>";
+      } else {
+        resultado += "<p>" + pergunta + ": incorreta ❌</p>";
+      }
+    }
 
-      resultBox.hidden = false;
-      resultBox.innerHTML =
-        "<p><strong>Nota: " +
-        grade +
-        " / 10</strong> (" +
-        correctCount +
-        " de " +
-        totalQuestions +
-        " corretas)</p><ul>" +
-        summaryLines.join("") +
-        "</ul>";
+    var nota = (pontos / total) * 10;
 
-      resetButton.hidden = false;
-      resultBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    });
+    resultBox.hidden = false;
+    resultBox.innerHTML =
+      "<p><strong>Nota: " + nota.toFixed(1) + " / 10</strong></p>" +
+      resultado;
 
-    resetButton.addEventListener("click", function () {
-      form.reset();
-      resultBox.hidden = true;
-      resultBox.innerHTML = "";
-      resetButton.hidden = true;
+    resetButton.hidden = false;
+  });
 
-      form.querySelectorAll("fieldset").forEach(function (fieldset) {
-        fieldset.classList.remove("is-correct", "is-incorrect");
-      });
-    });
-  }
-)();
+  resetButton.addEventListener("click", function () {
+    form.reset();
+    resultBox.hidden = true;
+    resultBox.innerHTML = "";
+    resetButton.hidden = true;
+  });
+})();
