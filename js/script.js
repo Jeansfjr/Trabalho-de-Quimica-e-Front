@@ -1,6 +1,4 @@
-"use strict";
-
-// Animação dos elementos ao rolar a página
+"// Animação dos elementos ao rolar a página
 (function () {
   var items = document.querySelectorAll(".reveal");
 
