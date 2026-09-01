@@ -1,16 +1,12 @@
-/* ==========================================================================
-   Reator Arc — Química (Homem de Ferro 2)
-   ========================================================================== */
-
 :root {
-  --bg: #0a0e13;
-  --bg-panel: #121924;
-  --bg-panel-2: #17202c;
-  --accent: #4fd8e8;
-  --accent-dim: #2c8b96;
+  --fundo: #0a0e13;
+  --fundo-panel: #121924;
+  --fundo-panel-2: #17202c;
+  --azul: #4fd8e8;
+  --azul-escuro: #2c8b96;
   --correcao: #e8a23b;
-  --text: #e7edf2;
-  --text-muted: #93a3b0;
+  --texto: #e7edf2;
+  --subtitulos: #93a3b0;
   --border: rgba(255, 255, 255, 0.09);
 
   --font-display: "Rajdhani", "Segoe UI", sans-serif;
@@ -21,6 +17,7 @@
 }
 
 * {
+
   box-sizing: border-box;
 }
 
@@ -30,8 +27,8 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--bg);
-  color: var(--text);
+  background-color: var(--fundo);
+  color: var(--texto);
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -66,16 +63,16 @@ h2 {
 
 h3 {
   font-size: 1.15rem;
-  color: var(--accent);
+  color: var(--azul);
 }
 
 p {
   margin: 0 0 1em;
-  color: var(--text-muted);
+  color: var(--subtitulos);
 }
 
 a {
-  color: var(--accent);
+  color: var(--azul);
 }
 
 .moldura {
@@ -86,7 +83,7 @@ a {
 
 .rotulo {
   font-family: var(--font-display);
-  color: var(--accent);
+  color: var(--azul);
   letter-spacing: 0.04em;
   font-size: 0.95rem;
   margin: 0 0 0.4em;
@@ -105,7 +102,7 @@ a {
   position: absolute;
   left: -999px;
   top: 0;
-  background: var(--accent);
+  background: var(--azul);
   color: #05171a;
   padding: 0.6em 1em;
   z-index: 100;
@@ -142,20 +139,20 @@ a {
   align-items: center;
   gap: 0.6rem;
   text-decoration: none;
-  color: var(--text);
+  color: var(--texto);
   font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 600;
 }
 
-.brand__text-thin {
-  color: var(--text-muted);
+.brand__texto--texto-thin {
+  color: var(--subtitulos);
   font-weight: 500;
 }
 
 .core-ring {
   fill: none;
-  stroke: var(--accent);
+  stroke: var(--azul);
 }
 
 .core-ring--outer {
@@ -169,7 +166,7 @@ a {
 }
 
 .core-ring--inner {
-  fill: var(--accent);
+  fill: var(--azul);
   stroke: none;
 }
 
@@ -183,19 +180,19 @@ a {
 }
 
 .site-nav a {
-  color: var(--text-muted);
+  color: var(--subtitulos);
   text-decoration: none;
   font-size: 0.95rem;
 }
 
 .site-nav a:hover,
 .site-nav a:focus-visible {
-  color: var(--accent);
+  color: var(--azul);
 }
 
 .site-nav__cta {
-  color: var(--accent) !important;
-  border: 1px solid var(--accent-dim);
+  color: var(--azul) !important;
+  border: 1px solid var(--azul-escuro);
   padding: 0.35em 0.8em;
   border-radius: 6px;
 }
@@ -218,7 +215,7 @@ a {
 
 .btn {
   display: inline-block;
-  background: var(--accent);
+  background: var(--azul);
   color: #05171a;
   font-family: var(--font-display);
   font-weight: 600;
@@ -236,7 +233,7 @@ a {
 
 .btn--ghost {
   background: transparent;
-  color: var(--text);
+  color: var(--texto);
   border: 1px solid var(--border);
 }
 
@@ -252,7 +249,7 @@ a {
 
 .reactor__ring {
   fill: none;
-  stroke: var(--accent);
+  stroke: var(--azul);
   stroke-width: 1.2;
   opacity: 0.35;
   transform-origin: 150px 150px;
@@ -268,7 +265,7 @@ a {
 }
 
 .reactor__core {
-  fill: var(--accent);
+  fill: var(--azul);
   animation: glow 3.2s ease-in-out infinite;
 }
 
@@ -283,8 +280,8 @@ a {
 }
 
 @keyframes glow {
-  0%, 100% { filter: drop-shadow(0 0 4px var(--accent)); opacity: 0.85; }
-  50% { filter: drop-shadow(0 0 18px var(--accent)); opacity: 1; }
+  0%, 100% { filter: drop-shadow(0 0 4px var(--azul)); opacity: 0.85; }
+  50% { filter: drop-shadow(0 0 18px var(--azul)); opacity: 1; }
 }
 
 /* ---------- Sections ---------- */
@@ -294,7 +291,7 @@ a {
 }
 
 .section--alt {
-  background: var(--bg-panel);
+  background: var(--fundo-panel);
 }
 
 .grid-2 {
@@ -303,14 +300,8 @@ a {
   gap: 1.5rem;
 }
 
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
 .cartao {
-  background: var(--bg-panel-2);
+  background: var(--fundo-panel-2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.6rem;
@@ -341,7 +332,7 @@ a {
 }
 
 .ficha-tecnica dt {
-  color: var(--text-muted);
+  color: var(--subtitulos);
 }
 
 .ficha-tecnica dd {
@@ -358,7 +349,7 @@ a {
 }
 
 .img-cartao figcaption {
-  color: var(--text-muted);
+  color: var(--subtitulos);
   font-size: 0.85rem;
   margin-top: 0.6em;
 }
@@ -369,7 +360,7 @@ a {
 }
 
 .ref-list {
-  color: var(--text-muted);
+  color: var(--subtitulos);
   padding-left: 1.2rem;
 }
 
@@ -385,7 +376,7 @@ a {
 }
 
 .prova__questao {
-  background: var(--bg-panel-2);
+  background: var(--fundo-panel-2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.2rem 1.4rem;
@@ -394,13 +385,13 @@ a {
 .prova__questao legend {
   font-family: var(--font-display);
   padding: 0 0.3em;
-  color: var(--text);
+  color: var(--texto);
 }
 
 .prova__questao label {
   display: block;
   padding: 0.35em 0;
-  color: var(--text-muted);
+  color: var(--subtitulos);
   cursor: pointer;
 }
 
@@ -418,14 +409,14 @@ a {
 }
 
 .prova__resultado {
-  background: var(--bg-panel-2);
-  border: 1px solid var(--accent-dim);
+  background: var(--fundo-panel-2);
+  border: 1px solid var(--azul-escuro);
   border-radius: var(--radius);
   padding: 1.2rem 1.4rem;
 }
 
 .prova__resultado strong {
-  color: var(--accent);
+  color: var(--azul);
 }
 
 /* ---------- Footer ---------- */
@@ -443,8 +434,6 @@ a {
   font-size: 0.85rem;
 }
 
-/* ---------- Scroll reveal ---------- */
-
 .reveal {
   opacity: 0;
   transform: translateY(16px);
@@ -456,10 +445,6 @@ a {
   transform: translateY(0);
 }
 
-/* ==========================================================================
-   Responsive: 375px – 1920px
-   ========================================================================== */
-
 @media (max-width: 900px) {
   .prota__inner {
     grid-template-columns: 1fr;
@@ -468,11 +453,6 @@ a {
   .prota__reator {
     order: -1;
   }
-
-  .grid-3 {
-    grid-template-columns: 1fr 1fr;
-  }
-}
 
 @media (max-width: 700px) {
   .site-header__inner {
@@ -499,4 +479,5 @@ a {
   :root {
     --max-width: 1280px;
   }
+}
 }
