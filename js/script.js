@@ -64,10 +64,10 @@
    Prova online
    ========================================================================== */
 
-(function setupQuiz() {
-  var form = document.getElementById("quizForm");
-  var resetButton = document.getElementById("quizReset");
-  var resultBox = document.getElementById("quizResult");
+(function setupprova() {
+  var form = document.getElementById("prova-formulario");
+  var resetButton = document.getElementById("prova-resetar");
+  var resultBox = document.getElementById("prova-resultado");
 
   if (!form || !resetButton || !resultBox) {
     return;
