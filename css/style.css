@@ -237,6 +237,11 @@ a {
   border: 1px solid var(--border);
 }
 
+.brand__text {
+  color: var(--texto);
+}
+
+
 .prota__reator {
   display: flex;
   justify-content: center;
