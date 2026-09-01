@@ -1,27 +1,5 @@
 "use strict";
 
-// MENU
-(function setupNavToggle() {
-  var toggle = document.getElementById("navToggle");
-  var nav = document.getElementById("siteNav");
-
-  if (!toggle || !nav) {
-    return;
-  }
-
-  toggle.addEventListener("click", function () {
-    var isOpen = nav.classList.toggle("is-open");
-    toggle.setAttribute("aria-expanded", String(isOpen));
-  });
-
-  nav.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      nav.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-    });
-  });
-})();
-
 // ANIMAÇÃO AO ROLAR A PÁGINA
 (function setupScrollReveal() {
   var items = document.querySelectorAll(".reveal");
@@ -30,14 +8,24 @@
     return;
   }
 
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
+  if (!("IntersectionObserver" in window)) {
+    items.forEach(function (item) {
+      item.classList.add("is-visible");
     });
-  });
+    return;
+  }
+
+  var observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
 
   items.forEach(function (item) {
     observer.observe(item);
@@ -54,32 +42,32 @@
     return;
   }
 
-  // Gabarito
+  // Gabarito da prova
   var answerKey = {
     q1: "certo",
     q2: "certo",
     q3: "certo"
   };
 
-  // Quando o formulário for enviado
+  // Corrige a prova
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    var correctCount = 0;
     var totalQuestions = Object.keys(answerKey).length;
-    var allAnswered = true;
+    var correctCount = 0;
     var summaryLines = [];
+    var allAnswered = true;
 
     Object.keys(answerKey).forEach(function (questionName) {
-      var selected = form.querySelector(
-        'input[name="' + questionName + '"]:checked'
-      );
-
       var input = form.querySelector(
         'input[name="' + questionName + '"]'
       );
 
       var fieldset = input ? input.closest("fieldset") : null;
+
+      var selected = form.querySelector(
+        'input[name="' + questionName + '"]:checked'
+      );
 
       if (!fieldset) {
         return;
@@ -87,13 +75,11 @@
 
       fieldset.classList.remove("is-correct", "is-incorrect");
 
-      // Verifica se respondeu
       if (!selected) {
         allAnswered = false;
         return;
       }
 
-      // Verifica se acertou
       var isCorrect = selected.value === answerKey[questionName];
 
       if (isCorrect) {
@@ -103,9 +89,11 @@
         fieldset.classList.add("is-incorrect");
       }
 
-      // Mostra a pergunta e a resposta escolhida
       var legend = fieldset.querySelector("legend");
-      var questionLabel = legend ? legend.textContent : questionName;
+      var questionLabel = legend
+        ? legend.textContent
+        : questionName;
+
       var chosenLabel = selected.parentElement.textContent.trim();
 
       summaryLines.push(
@@ -118,7 +106,6 @@
       );
     });
 
-    // Se alguma pergunta ficou sem resposta
     if (!allAnswered) {
       resultBox.hidden = false;
       resultBox.innerHTML =
@@ -126,11 +113,10 @@
       return;
     }
 
-    // Calcula a nota
     var grade = ((correctCount / totalQuestions) * 10).toFixed(1);
 
-    // Mostra o resultado
     resultBox.hidden = false;
+
     resultBox.innerHTML =
       "<p><strong>Nota: " +
       grade +
@@ -151,7 +137,7 @@
     });
   });
 
-  // Botão para resetar a prova
+  // Limpa a prova
   resetButton.addEventListener("click", function () {
     form.reset();
 
