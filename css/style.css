@@ -145,7 +145,7 @@ a {
   font-weight: 600;
 }
 
-.brand__text{
+.brand__texto--texto-thin {
   color: var(--subtitulos);
   font-weight: 500;
 }
